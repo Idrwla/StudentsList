@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">StudentsList</string>
+    <string name="student">student</string>
+    <string name="group">group</string>
+    <string name="students_list">Students List</string>
+    <string name="insert">Insert</string>
+    <string name="student_name_placeHolder">Student Name</string>
+    <string name="student_from_group">Student from group: </string>
+</resources>
