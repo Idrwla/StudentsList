@@ -10,11 +10,12 @@ import androidx.recyclerview.widget.RecyclerView
 
 
 class StudentsAdapter(private val students_list: List<Student>,
-                      private val listener: OnItemClickListener
+                      private val listener: OnItemClickListener?
 
                       ) : RecyclerView.Adapter<StudentsAdapter.StudentViewHolder>(){
     private var studentsToRemove: ArrayList<Int> = ArrayList<Int>()
-    inner class StudentViewHolder(itemView:View): RecyclerView.ViewHolder(itemView), View.OnClickListener,View.OnLongClickListener{
+    inner class StudentViewHolder(itemView:View): RecyclerView.ViewHolder(itemView), View.OnClickListener//,View.OnLongClickListener
+    {
         val image: ImageView  = itemView.findViewById(R.id.acc_image)
         val name: TextView  = itemView.findViewById(R.id.student_name_txt)
         val group: TextView  = itemView.findViewById(R.id.student_group)
@@ -27,21 +28,21 @@ class StudentsAdapter(private val students_list: List<Student>,
 
         override fun onClick(v: View?) {
             if(adapterPosition!=RecyclerView.NO_POSITION){
-                listener.onItemClick(adapterPosition)
+                listener?.onItemClick(adapterPosition)
             }
         }
 
-        override fun onLongClick(v: View?): Boolean {
-            if(adapterPosition!=RecyclerView.NO_POSITION){
-                listener.onItemClick(adapterPosition)
-            }
-            return true
-        }
+//        override fun onLongClick(v: View?): Boolean {
+//            if(adapterPosition!=RecyclerView.NO_POSITION){
+//                listener.onItemClick(adapterPosition)
+//            }
+//            return true
+//        }
 
     }
     interface OnItemClickListener{
         fun onItemClick(position: Int)
-        fun onItemLongClick(position: Int)
+        //fun onItemLongClick(position: Int)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StudentViewHolder {
@@ -63,6 +64,9 @@ class StudentsAdapter(private val students_list: List<Student>,
 
     override fun getItemCount(): Int {
         return students_list.size
+    }
+    companion object{
+
     }
 
     fun getStudentsToRemove():ArrayList<Int>{

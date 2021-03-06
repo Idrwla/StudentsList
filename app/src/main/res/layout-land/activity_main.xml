@@ -57,21 +57,28 @@
         </LinearLayout>
     </androidx.appcompat.widget.Toolbar>
 
-    <FrameLayout
-        android:id="@+id/FlMain"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="4dp"
         android:layout_below="@+id/my_toolbar"
-        android:clipToPadding="false"/>
+        android:weightSum="2">
+        <fragment
+            class="com.example.studentslist.StudentsFragment"
+            android:id="@+id/StudList"
+            android:layout_height="match_parent"
+            android:layout_width="0dp"
+    android:layout_weight="1"
+            />
 
-<!--    <androidx.recyclerview.widget.RecyclerView-->
-<!--        android:id="@+id/recyclerView"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:padding="4dp"-->
-<!--        android:clipToPadding="false"-->
-<!--        tools:listitem="@layout/item_view"-->
-<!--        android:layout_below="@+id/my_toolbar"/>-->
+        <fragment
+            class="com.example.studentslist.StudentDetailFragment"
+            android:id="@+id/studDetail"
+            android:layout_height="match_parent"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+           />
+    </LinearLayout>
+
+
 
 </RelativeLayout>
